@@ -1,0 +1,620 @@
+{
+  "info": {
+    "_postman_id": "f0c2aa68-655e-4ee0-ae1c-def1eb60f172",
+    "name": "Verzel Store - QA",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58796472",
+    "_collection_link": "https://go.postman.co/collection/58796472-f0c2aa68-655e-4ee0-ae1c-def1eb60f172?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Consultas",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://verzel-store.qa-test-verzel-store.workers.dev/api/produtos/",
+          "protocol": "https",
+          "host": [
+            "verzel-store",
+            "qa-test-verzel-store",
+            "workers",
+            "dev"
+          ],
+          "path": [
+            "api",
+            "produtos",
+            ""
+          ]
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": []
+    },
+    {
+      "name": "API-004-body-sem-itens",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"cupom\": \"BEMVINDO10\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://verzel-store.qa-test-verzel-store.workers.dev/api/carrinho/calcular",
+          "protocol": "https",
+          "host": [
+            "verzel-store",
+            "qa-test-verzel-store",
+            "workers",
+            "dev"
+          ],
+          "path": [
+            "api",
+            "carrinho",
+            "calcular"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-005-body-com-itens-vazio",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": []\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://verzel-store.qa-test-verzel-store.workers.dev/api/carrinho/calcular",
+          "protocol": "https",
+          "host": [
+            "verzel-store",
+            "qa-test-verzel-store",
+            "workers",
+            "dev"
+          ],
+          "path": [
+            "api",
+            "carrinho",
+            "calcular"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-006-item-invalido",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    {}\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://verzel-store.qa-test-verzel-store.workers.dev/api/carrinho/calcular",
+          "protocol": "https",
+          "host": [
+            "verzel-store",
+            "qa-test-verzel-store",
+            "workers",
+            "dev"
+          ],
+          "path": [
+            "api",
+            "carrinho",
+            "calcular"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-007-produto-nao-existe-no-catalogo",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    {\r\n      \"produtoId\": \"P999\",\r\n      \"quantidade\": 1\r\n    }\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://verzel-store.qa-test-verzel-store.workers.dev/api/carrinho/calcular",
+          "protocol": "https",
+          "host": [
+            "verzel-store",
+            "qa-test-verzel-store",
+            "workers",
+            "dev"
+          ],
+          "path": [
+            "api",
+            "carrinho",
+            "calcular"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-008-item-duplicado",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    {\r\n      \"produtoId\": \"P001\",\r\n      \"quantidade\": 1\r\n    },\r\n    {\r\n      \"produtoId\": \"P001\",\r\n      \"quantidade\": 2\r\n    }\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://verzel-store.qa-test-verzel-store.workers.dev/api/carrinho/calcular",
+          "protocol": "https",
+          "host": [
+            "verzel-store",
+            "qa-test-verzel-store",
+            "workers",
+            "dev"
+          ],
+          "path": [
+            "api",
+            "carrinho",
+            "calcular"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-009-quantidade-invalida",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    {\r\n      \"produtoId\": \"P001\",\r\n      \"quantidade\": 0\r\n    }\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://verzel-store.qa-test-verzel-store.workers.dev/api/carrinho/calcular",
+          "protocol": "https",
+          "host": [
+            "verzel-store",
+            "qa-test-verzel-store",
+            "workers",
+            "dev"
+          ],
+          "path": [
+            "api",
+            "carrinho",
+            "calcular"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-010-quantidade-excedida",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    {\r\n      \"produtoId\": \"P001\",\r\n      \"quantidade\": 10\r\n    }\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://verzel-store.qa-test-verzel-store.workers.dev/api/carrinho/calcular",
+          "protocol": "https",
+          "host": [
+            "verzel-store",
+            "qa-test-verzel-store",
+            "workers",
+            "dev"
+          ],
+          "path": [
+            "api",
+            "carrinho",
+            "calcular"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-011-pedido-todo-valido",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    {\r\n      \"produtoId\": \"P001\",\r\n      \"quantidade\": 1\r\n    },\r\n    {\r\n      \"produtoId\": \"P006\",\r\n      \"quantidade\": 5\r\n    }\r\n  ],\r\n  \"cliente\": {\r\n    \"nome\": \"Zé do Caixão\",\r\n    \"email\": \"zedasilva@email.com\",\r\n    \"cep\": \"12345678\"\r\n  },\r\n  \"cupom\": \"BEMVINDO10\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://verzel-store.qa-test-verzel-store.workers.dev/api/pedidos",
+          "protocol": "https",
+          "host": [
+            "verzel-store",
+            "qa-test-verzel-store",
+            "workers",
+            "dev"
+          ],
+          "path": [
+            "api",
+            "pedidos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-012-nome-do-cliente-invalido",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    {\r\n      \"produtoId\": \"P001\",\r\n      \"quantidade\": 1\r\n    }\r\n  ],\r\n  \"cliente\": {\r\n    \"nome\": \"Mario\",\r\n    \"email\": \"aqueleMario@email.com\",\r\n    \"cep\": \"12345678\"\r\n  },\r\n  \"cupom\": \"BEMVINDO10\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://verzel-store.qa-test-verzel-store.workers.dev/api/pedidos",
+          "protocol": "https",
+          "host": [
+            "verzel-store",
+            "qa-test-verzel-store",
+            "workers",
+            "dev"
+          ],
+          "path": [
+            "api",
+            "pedidos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-013-email-invalido",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    {\r\n      \"produtoId\": \"P001\",\r\n      \"quantidade\": 1\r\n    },\r\n    {\r\n      \"produtoId\": \"P006\",\r\n      \"quantidade\": 5\r\n    }\r\n  ],\r\n  \"cliente\": {\r\n    \"nome\": \"Zé do Caixão\",\r\n    \"email\": \"zedasilvaemail.com\",\r\n    \"cep\": \"12345678\"\r\n  },\r\n  \"cupom\": \"BEMVINDO10\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://verzel-store.qa-test-verzel-store.workers.dev/api/pedidos",
+          "protocol": "https",
+          "host": [
+            "verzel-store",
+            "qa-test-verzel-store",
+            "workers",
+            "dev"
+          ],
+          "path": [
+            "api",
+            "pedidos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-014-email-valido-sem-nome",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    {\r\n      \"produtoId\": \"P001\",\r\n      \"quantidade\": 1\r\n    },\r\n    {\r\n      \"produtoId\": \"P006\",\r\n      \"quantidade\": 5\r\n    }\r\n  ],\r\n  \"cliente\": {\r\n    \r\n    \"email\": \"zedasilva@email.com\",\r\n    \"cep\": \"12345678\"\r\n  },\r\n  \"cupom\": \"BEMVINDO10\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://verzel-store.qa-test-verzel-store.workers.dev/api/pedidos",
+          "protocol": "https",
+          "host": [
+            "verzel-store",
+            "qa-test-verzel-store",
+            "workers",
+            "dev"
+          ],
+          "path": [
+            "api",
+            "pedidos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-015-cep",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    {\r\n      \"produtoId\": \"P001\",\r\n      \"quantidade\": 1\r\n    },\r\n    {\r\n      \"produtoId\": \"P006\",\r\n      \"quantidade\": 5\r\n    }\r\n  ],\r\n  \"cliente\": {\r\n    \"nome\": \"Zé do Caixão\",\r\n    \"email\": \"zedasilva@email.com\",\r\n    \"cep\": \"12345-678\"\r\n  },\r\n  \"cupom\": \"BEMVINDO10\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://verzel-store.qa-test-verzel-store.workers.dev/api/pedidos",
+          "protocol": "https",
+          "host": [
+            "verzel-store",
+            "qa-test-verzel-store",
+            "workers",
+            "dev"
+          ],
+          "path": [
+            "api",
+            "pedidos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-017-cep-invalido",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    {\r\n      \"produtoId\": \"P001\",\r\n      \"quantidade\": 1\r\n    },\r\n    {\r\n      \"produtoId\": \"P006\",\r\n      \"quantidade\": 5\r\n    }\r\n  ],\r\n  \"cliente\": {\r\n    \"nome\": \"Zé do Caixão\",\r\n    \"email\": \"zedasilva@email.com\",\r\n    \"cep\": \"123453-678\"\r\n  },\r\n  \"cupom\": \"BEMVINDO10\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://verzel-store.qa-test-verzel-store.workers.dev/api/pedidos",
+          "protocol": "https",
+          "host": [
+            "verzel-store",
+            "qa-test-verzel-store",
+            "workers",
+            "dev"
+          ],
+          "path": [
+            "api",
+            "pedidos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-018-cupom-inexistente",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    {\r\n      \"produtoId\": \"P001\",\r\n      \"quantidade\": 1\r\n    },\r\n    {\r\n      \"produtoId\": \"P006\",\r\n      \"quantidade\": 5\r\n    }\r\n  ],\r\n  \"cliente\": {\r\n    \"nome\": \"Zé do Caixão\",\r\n    \"email\": \"zedasilva@email.com\",\r\n    \"cep\": \"12345-678\"\r\n  },\r\n  \"cupom\": \"BEMVINDO100\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://verzel-store.qa-test-verzel-store.workers.dev/api/pedidos",
+          "protocol": "https",
+          "host": [
+            "verzel-store",
+            "qa-test-verzel-store",
+            "workers",
+            "dev"
+          ],
+          "path": [
+            "api",
+            "pedidos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-019-cupom-expirado",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    {\r\n      \"produtoId\": \"P001\",\r\n      \"quantidade\": 1\r\n    },\r\n    {\r\n      \"produtoId\": \"P006\",\r\n      \"quantidade\": 5\r\n    }\r\n  ],\r\n  \"cliente\": {\r\n    \"nome\": \"Zé do Caixão\",\r\n    \"email\": \"zedasilva@email.com\",\r\n    \"cep\": \"12345-678\"\r\n  },\r\n  \"cupom\": \"VERAO2026\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://verzel-store.qa-test-verzel-store.workers.dev/api/pedidos",
+          "protocol": "https",
+          "host": [
+            "verzel-store",
+            "qa-test-verzel-store",
+            "workers",
+            "dev"
+          ],
+          "path": [
+            "api",
+            "pedidos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-020-metodo-invalido",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    {\r\n      \"produtoId\": \"P001\",\r\n      \"quantidade\": 1\r\n    },\r\n    {\r\n      \"produtoId\": \"P006\",\r\n      \"quantidade\": 5\r\n    }\r\n  ],\r\n  \"cliente\": {\r\n    \"nome\": \"Zé do Caixão\",\r\n    \"email\": \"zedasilva@email.com\",\r\n    \"cep\": \"12345-678\"\r\n  },\r\n  \"cupom\": \"BEMVINDO10\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://verzel-store.qa-test-verzel-store.workers.dev/api/pedidos",
+          "protocol": "https",
+          "host": [
+            "verzel-store",
+            "qa-test-verzel-store",
+            "workers",
+            "dev"
+          ],
+          "path": [
+            "api",
+            "pedidos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-021-rota-invalida",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    {\r\n      \"produtoId\": \"P001\",\r\n      \"quantidade\": 1\r\n    },\r\n    {\r\n      \"produtoId\": \"P006\",\r\n      \"quantidade\": 5\r\n    }\r\n  ],\r\n  \"cliente\": {\r\n    \"nome\": \"Zé do Caixão\",\r\n    \"email\": \"zedasilva@email.com\",\r\n    \"cep\": \"12345-678\"\r\n  },\r\n  \"cupom\": \"BEMVINDO10\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://verzel-store.qa-test-verzel-store.workers.dev/api/pedidosdebrinde",
+          "protocol": "https",
+          "host": [
+            "verzel-store",
+            "qa-test-verzel-store",
+            "workers",
+            "dev"
+          ],
+          "path": [
+            "api",
+            "pedidosdebrinde"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-022-json-invalido",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "https://verzel-store.qa-test-verzel-store.workers.dev/api/pedidos",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://verzel-store.qa-test-verzel-store.workers.dev/api/pedidos",
+          "protocol": "https",
+          "host": [
+            "verzel-store",
+            "qa-test-verzel-store",
+            "workers",
+            "dev"
+          ],
+          "path": [
+            "api",
+            "pedidos"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
