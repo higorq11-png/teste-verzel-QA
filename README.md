@@ -28,7 +28,7 @@ As automações foram desenvolvidas com **Playwright** e estão no diretório `v
 ### 1. Acessar os arquivos
 
 1. Abra o [repositório do projeto no GitHub](https://github.com/higorq11-png/teste-verzel-QA).
-2. Entre no diretório `verzel-store-automacao/`.
+2. Faça download da pasta `verzel-store-automacao/`.
 3. Abra a pasta `tests/` para consultar os arquivos de automação.
 
 Os arquivos de teste são:
@@ -70,20 +70,14 @@ npx playwright test
 Para executar apenas um arquivo específico, utilize, por exemplo:
 
 ```bash
-npx playwright test tests/frete-gratis.spec.js
+npx playwright test tests/NOME-DO-TESTE.spec.js
 ```
 
 
 
 ### 4. Consultar os resultados
 
-A configuração atual utiliza o reporter `list`, que apresenta os resultados diretamente no terminal. Para gerar um relatório HTML de uma execução, rode:
-
-```bash
-npx playwright test --reporter=html
-```
-
-Em seguida, abra o relatório com:
+A configuração atual utiliza o reporter `list`, que apresenta os resultados diretamente no terminal. Para visualizar um relatório HTML de uma execução, após executer os testes rode:
 
 ```bash
 npx playwright show-report
