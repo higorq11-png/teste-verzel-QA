@@ -91,5 +91,4 @@ O Playwright abrirá o relatório HTML no navegador, permitindo consultar os res
 - Os resultados podem variar caso o ambiente de teste ou os dados da aplicação sejam alterados.
 - Os arquivos de automação devem ser executados a partir do diretório `verzel-store-automacao/`, onde estão o `package.json` e a configuração do Playwright.
 
-### Uso de IA
-A inteligência artificial foi utilizada como ferramenta de apoio durante o desenvolvimento deste teste técnico, auxiliando na revisão dos cenários de teste, na identificação de possíveis casos de borda, na elaboração e revisão dos testes automatizados e na organização da documentação. Também contribuiu para esclarecer dúvidas técnicas e sugerir melhorias na cobertura e na estrutura dos testes. As decisões sobre os testes, a análise dos resultados e a validação dos comportamentos observados foram conduzidas por mim.
+
