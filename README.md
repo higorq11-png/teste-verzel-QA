@@ -92,10 +92,10 @@ O Playwright abrirá o relatório HTML no navegador, permitindo consultar os res
 - Os arquivos de automação devem ser executados a partir do diretório `verzel-store-automacao/`, onde estão o `package.json` e a configuração do Playwright.
 
 - Conventional Commits:
-    feat: introduz nova funcionalidade à condebase
-    fix: corrige um bug na codebase
-    test: alterações em testes automatizados
-    docs: mudanças exclusivamente na documentação, sem alteração em código
-    refactor: reestruturação ou limpeza na base sem alterar sua funcionalidade externa
+    - feat: introduz nova funcionalidade à condebase
+    - fix: corrige um bug na codebase
+    - test: alterações em testes automatizados
+    - docs: mudanças exclusivamente na documentação, sem alteração em código
+    - refactor: reestruturação ou limpeza na base sem alterar sua funcionalidade externa
 
 
