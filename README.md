@@ -97,5 +97,7 @@ O Playwright abrirá o relatório HTML no navegador, permitindo consultar os res
     - test: alterações em testes automatizados
     - docs: mudanças exclusivamente na documentação, sem alteração em código
     - refactor: reestruturação ou limpeza na base sem alterar sua funcionalidade externa
+    - chore: tarefas de manutenção e rotina que não alteram o código nem os testes
+    
 
 
