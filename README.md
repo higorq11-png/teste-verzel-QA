@@ -94,8 +94,8 @@ O Playwright abrirá o relatório HTML no navegador, permitindo consultar os res
 ### - Conventional Commits:
     - feat: introduz nova funcionalidade à condebase
     - fix: corrige um bug na codebase
-    - test: alterações em testes automatizados
-    - docs: mudanças exclusivamente na documentação, sem alteração em código
+    - test: é usado para qualquer alteração que afete a estratégia, especificação, planejamento ou execução de testes do projeto
+    - docs: é reservado estritamente para documentação técnica, explicativa ou instrucional sobre o projeto/código, ou seja, arquivos que explicam como o projeto funciona ou como usá-lo, mas não alteram nem código nem testes.
     - refactor: reestruturação ou limpeza na base sem alterar sua funcionalidade externa
     - chore: tarefas de manutenção e rotina que não alteram o código nem os testes
     
