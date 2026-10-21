@@ -91,7 +91,7 @@ O Playwright abrirá o relatório HTML no navegador, permitindo consultar os res
 - Os resultados podem variar caso o ambiente de teste ou os dados da aplicação sejam alterados.
 - Os arquivos de automação devem ser executados a partir do diretório `verzel-store-automacao/`, onde estão o `package.json` e a configuração do Playwright.
 
-- Conventional Commits:
+### - Conventional Commits:
     - feat: introduz nova funcionalidade à condebase
     - fix: corrige um bug na codebase
     - test: alterações em testes automatizados
