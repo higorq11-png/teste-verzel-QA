@@ -15,6 +15,35 @@ Os bugs identificados foram documentados em dois formatos:
 - **Excel:** mantém o mesmo padrão dos demais artefatos. Na planilha de testes, a célula em que o bug é mencionado contém um link para o respectivo relatório.
 - **PowerPoint:** apresenta os bugs e suas evidências em formato de apresentação, permitindo uma consulta visual sem a necessidade de abrir links externos.
 
+### Critérios de severidade e prioridade
+
+Os casos de teste e os defeitos identificados foram classificados segundo duas escalas: severidade, com cinco níveis, e prioridade, com quatro níveis.
+
+#### Severidade
+
+A severidade representa o impacto do defeito sobre o funcionamento do sistema.
+
+| Nível | Definição |
+|---|---|
+| Bloqueante | Impede uma operação essencial ou inviabiliza a continuidade de um fluxo crítico. |
+| Crítica | Compromete gravemente uma regra de negócio ou funcionalidade importante. |
+| Alta | Afeta significativamente uma funcionalidade ou produz resultados incorretos em um fluxo relevante. |
+| Média | Apresenta impacto moderado, restrito a determinadas condições ou cenários. |
+| Baixa | Apresenta impacto reduzido, sem comprometer os fluxos principais. |
+
+#### Prioridade
+
+A prioridade representa a urgência recomendada para a correção do defeito.
+
+| Nível | Definição |
+|---|---|
+| Crítica | Exige correção imediata devido ao risco elevado ou ao comprometimento de uma operação essencial. |
+| Alta | Deve ser corrigida prioritariamente, preferencialmente antes da próxima entrega. |
+| Média | Deve ser corrigida conforme o planejamento, considerando riscos e recursos disponíveis. |
+| Baixa | Pode ser postergada quando não representa risco significativo no curto prazo. |
+
+As classificações são avaliadas separadamente: a severidade considera o impacto do defeito, enquanto a prioridade considera a urgência de sua correção.
+
 ### Testes de API
 
 Os testes de API foram realizados no Postman. A coleção exportada com as requisições está no arquivo `Verzel Store - QA.postman_collection.json`.
@@ -53,7 +82,7 @@ Instale as dependências do projeto:
 npm install
 ```
 
-Caso o navegador necessário ainda não esteja instalado para o Playwright, execute:
+Caso os navegadores necessários ainda não estejam instalados para o Playwright, execute:
 
 ```bash
 npx playwright install
@@ -73,11 +102,9 @@ Para executar apenas um arquivo específico, utilize, por exemplo:
 npx playwright test tests/NOME-DO-TESTE.spec.js
 ```
 
-
-
 ### 4. Consultar os resultados
 
-A configuração atual utiliza o reporter `list`, que apresenta os resultados diretamente no terminal. Para visualizar um relatório HTML de uma execução, após executer os testes rode:
+A configuração atual utiliza o reporter `list`, que apresenta os resultados diretamente no terminal. Para visualizar o relatório HTML de uma execução, após executar os testes, rode:
 
 ```bash
 npx playwright show-report
@@ -91,13 +118,13 @@ O Playwright abrirá o relatório HTML no navegador, permitindo consultar os res
 - Os resultados podem variar caso o ambiente de teste ou os dados da aplicação sejam alterados.
 - Os arquivos de automação devem ser executados a partir do diretório `verzel-store-automacao/`, onde estão o `package.json` e a configuração do Playwright.
 
-### - Conventional Commits:
-    - feat: introduz nova funcionalidade à condebase
-    - fix: corrige um bug na codebase
-    - test: é usado para qualquer alteração que afete a estratégia, especificação, planejamento ou execução de testes do projeto
-    - docs: é reservado estritamente para documentação técnica, explicativa ou instrucional sobre o projeto/código, ou seja, arquivos que explicam como o projeto funciona ou como usá-lo, mas não alteram nem código nem testes.
-    - refactor: reestruturação ou limpeza na base sem alterar sua funcionalidade externa
-    - chore: tarefas de manutenção e rotina que não alteram o código nem os testes
-    
+## Conventional Commits
 
+As mensagens de commit seguem a convenção Conventional Commits:
 
+- `feat`: introduz uma nova funcionalidade na codebase.
+- `fix`: corrige um bug na codebase.
+- `test`: identifica alterações que afetam a estratégia, especificação, planejamento ou execução dos testes do projeto.
+- `docs`: identifica alterações exclusivamente na documentação técnica, explicativa ou instrucional, sem modificar código ou testes.
+- `refactor`: reestrutura ou limpa o código sem alterar seu comportamento externo.
+- `chore`: identifica tarefas de manutenção e rotina que não alteram o código nem os testes.
